@@ -1,0 +1,26 @@
+version: "3.9"
+   
+services:
+  db_modelo:
+    image: 'mysql:8.0'
+    hostname: db_modelo
+    ports:
+      - '6034:3306'
+    environment:
+        MYSQL_ROOT_PASSWORD: 123456789
+        MYSQL_DATABASE: db_modelo
+        MYSQL_PASSWORD: 123456789
+        MYSQL_HOST: database
+        MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    volumes:
+      - './data/db:/var/lib/mysql'
+  web_modelo:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8089:8000"
+    depends_on:
+      - db_modelo
+
