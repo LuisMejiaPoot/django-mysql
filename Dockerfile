@@ -7,4 +7,3 @@ COPY . /code/
 RUN pip install mysqlclient
 RUN pip install python-dotenv
 RUN pip install requests
-RUN pip install blockcypher
