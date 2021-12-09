@@ -1,0 +1,40 @@
+{% extends '../base.html' %}
+
+
+{% block title%} Alumnos suspendidos {% endblock %}
+{% load static %}
+
+{% block content %}
+
+
+    <div class="container mx-auto">
+        {{message}}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>nombre</th>
+                    <th>apellidos</th>
+                    <th>correo</th>
+                    <th>edad</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+     
+                {% for alumno in alumnos %}
+                <tr>
+                    <td>{{alumno.name}}</td>
+                    <td>{{alumno.last_name}}</td>
+                    <td>{{alumno.email}}</td>
+                    <td>{{alumno.age}}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{% url 'ver_alumno' matricula=alumno.matricula %}">Actualizar</a>
+                        <a href="{% url 'delete_alumno' id_alumno=alumno.id %}" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

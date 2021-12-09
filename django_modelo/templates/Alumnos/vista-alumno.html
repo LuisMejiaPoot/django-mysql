@@ -1,0 +1,20 @@
+{% extends '../base.html' %}
+
+{% block title%} Actualizar usuario {% endblock %}
+{% load static %}
+
+{% block content %}
+
+<div>
+    {% if existe %}
+    <div class="text-center">
+        <h1 >{{alumno_seleccionado.name}}</h1>
+    </div>
+    {% else %}
+    <div>
+        <h1 class="text-center">No existe el alumno con matricula {{matricula}}</h1>
+    </div>
+    {% endif %}
+</div>
+
+{% endblock %}

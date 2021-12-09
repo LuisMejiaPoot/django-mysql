@@ -16,6 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from alumnos.views  import * 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path("alumnos",alumnos, name="alumnos"),
+    path("vista-alumnos",viewAlumnos,name="vistaAlumnos"),
+    path("ver-alumno/<matricula>",view_update_alumno,name="ver_alumno"),
+    path("agregar-alumno",agregar_alumno_form,name="agregar_usuario"),
+    path("agregar-alumno-add",agregar_alumno,name="add_alumno"),
+    path("eliminar-alumno/<id_alumno>",delete_alumnos,name="delete_alumno")
+
 ]
